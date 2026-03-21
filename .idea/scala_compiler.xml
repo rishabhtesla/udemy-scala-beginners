@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ScalaCompilerConfiguration">
-    <profile name="sbt 1" modules="udemy-scala-beginners" />
+    <option name="separateProdTestSources" value="true" />
+    <profile name="sbt 1" modules="udemy-scala-beginners,udemy-scala-beginners.main,udemy-scala-beginners.test" />
   </component>
 </project>

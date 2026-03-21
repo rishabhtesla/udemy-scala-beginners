@@ -5,6 +5,7 @@ object AnonymousFunctions extends App {
   // anonymous function (LAMBDA)
   val doubler: Int => Int = (x: Int) => x * 2
 
+  println(doubler(2))
   // multiple params in a lambda
   val adder: (Int, Int) => Int = (a: Int, b: Int) => a + b
 
