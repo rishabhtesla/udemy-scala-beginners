@@ -1,6 +1,8 @@
 # Part 4 — Power of Scala (Pattern Matching, Extractors, Partial Functions & Braceless Syntax)
 ### All Concepts Explained from the Ground Up
 
+Part 4 brings together case classes, collections, and functions from earlier parts. If those ideas still feel unfamiliar, revisit Parts 2 and 3 first. Run each lesson with `sbt "runMain lectures.part4power.FileName"` and test your understanding by predicting which case matches before running the example.
+
 ---
 
 # 🎯 1. PatternMatching.scala — Switch on Steroids
@@ -612,3 +614,14 @@ BracelessSyntax         → Scala 3: replace {} with indentation (if/then/else,
 | `PatternsEverywhere` | `catch`, `for` generators, `val` destructuring, and partial functions all use PM silently |
 | `BracelessSyntax` | Scala 3 lets you replace `{}` with indentation; `then`, `:`, and `end` are the new keywords |
 
+## Practice and interview checkpoints
+
+- Define a small sealed family of shapes and write a match that computes each shape's area. Check that the compiler can identify missing cases.
+- Rewrite a nested `if` that classifies a value as a `match`, then explain when the `if` is clearer.
+- Create a partial function for a few integers. Use `isDefinedAt` and `lift` to handle unsupported inputs safely.
+- Add an extractor for a regular class and describe what `unapply` returns when a match succeeds or fails.
+- Trace a destructuring `val` and a `for` generator, identifying the pattern each one uses.
+
+Interview checkpoints: How does pattern matching differ from a Java-style `switch`? Why should more specific cases come first? What does `sealed` let the compiler check? What is the difference between a total and partial function? What problem do extractors solve?
+
+Before moving to Part 5, be able to model a small closed set of cases and make a match exhaustive without using a catch-all case unnecessarily.

@@ -1,5 +1,13 @@
 # Part 2 OOP — All Concepts Explained (Bottom to Top)
 
+This module explains how Scala groups data and behavior into types. You will build from classes and objects to inheritance, traits, case classes, and generics. You should be comfortable with Part 1 values, methods, and types first.
+
+## How to study this module
+
+Read `OOBasics.scala` first, then work through the files in the order shown in the Big Picture below. Run examples with `sbt "runMain lectures.part2oop.FileName"`. For `package.scala`, use a neighboring example such as `PackagingAndImports.scala`; package objects are helpers rather than runnable lessons.
+
+Pause after each file to predict what an expression returns, then run it. Do not memorize syntax in isolation: explain what data the class owns, what behavior it exposes, and which type a value has.
+
 ---
 
 # 📦 1. OOBasics.scala — Classes, Fields, Methods, Constructors
@@ -164,10 +172,12 @@ class Crocodile extends Animal with Carnivore with ColdBlooded {
 
 | | Abstract Class | Trait |
 |---|---|---|
-| Constructor parameters | ✅ Yes | ❌ No |
+| Constructor parameters | ✅ Yes | ✅ Yes (Scala 3) |
 | Multiple inheritance | ❌ Only one | ✅ Many traits |
 | Meaning | A "thing" (IS-A) | A "behavior" (CAN-DO) |
 | Example | `Animal` | `Carnivore`, `Flyable` |
+
+Scala 3 traits can have constructor parameters. Older Scala material may say otherwise; for this Scala 3.3.1 project, treat traits as mixable behavior with support for parameters when needed.
 
 ---
 
@@ -601,3 +611,16 @@ Enums             → sealed named value sets (Scala 3)
 PackagingImports  → organizing code into packages, imports, aliasing
 ```
 
+## Practice and interview checkpoints
+
+Try these without copying an existing example:
+
+- Model a `BankAccount` with a balance and operations that return a new account instead of changing the old one.
+- Describe when to use a trait instead of an abstract class. Give one example of a type that can mix in multiple traits.
+- Make two case-class values with equal fields. Explain why they compare equal and what `copy` returns.
+- Write a generic method that accepts a type parameter, then explain what covariance and contravariance mean in plain language.
+- Explain the difference between a class and its companion object, and when a factory method is useful.
+
+Interview checkpoints: What is the difference between a class parameter and a `val` field? What does `override` guarantee? What is dynamic dispatch? Why are immutable values useful? What does a type parameter let you express? Why can `List[Cat]` safely be treated as `List[Animal]` only when the collection is covariant?
+
+Before moving to Part 3, be able to sketch a small domain model using a case class and a trait, and explain how an instance gets created and which implementation a method call invokes.

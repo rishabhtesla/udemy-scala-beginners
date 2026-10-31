@@ -1,4 +1,4 @@
-# Part 5 — Advanced Scala Concepts Missing from the Project
+# Part 5 — Advanced Scala 3 Concepts
 ### Modern Scala 3 concepts added as a new learning package
 
 ---
@@ -10,8 +10,11 @@ The project already covers:
 - functional programming,
 - pattern matching and Scala power features.
 
-But across the **whole project**, a few important Scala 3 concepts were still missing or only lightly implied.
-This package adds the most useful ones in a beginner-friendly way.
+Part 5 builds on those foundations with modern Scala 3 features and asynchronous programming. It is intentionally more advanced: do not worry if the type-class and concurrency examples take more than one pass.
+
+## How to study this module
+
+Review the matching source file as you read each section. Run examples with `sbt "runMain lectures.part5advanced.FileName"`. Start with `EnumsAndADTs.scala` and `Eithers.scala`, then continue through extension methods, opaque types, union/intersection types, givens, and futures. The suggested order later in this guide is another reasonable route.
 
 ---
 
@@ -469,3 +472,16 @@ So `part5advanced` acts like the next natural step after the current project.
 
 # Final takeaway
 If parts 1–4 teach you **how to write Scala**, then this package starts teaching you how to write **modern Scala 3** — including typed errors and asynchronous programming.
+
+## Practice and interview checkpoints
+
+- Replace a stringly typed user identifier with the opaque `UserId` type. Explain where the underlying representation is visible and where it is hidden.
+- Model a payment outcome with an enum or `Either`, then pattern match on every possible case.
+- Explain how a `given` value is found for a `using` parameter, using the serializer example.
+- Add an extension method to a type you do not own and explain why it does not modify that type.
+- Compose two `Future` values with `map`, `flatMap`, or a for-comprehension. Explain the role of the `ExecutionContext` and why blocking with `Await` should be avoided in application code.
+- Describe the difference between a union type (`A | B`) and an intersection type (`A & B`).
+
+Interview checkpoints: When would you choose `Either` over an exception? What does an opaque type protect? What does contextual search do? What is the difference between asynchronous and parallel work? Why must asynchronous code have an execution context?
+
+Do not move to Part 6 until you can read a `Future` or `Either` chain and explain its success and failure paths.

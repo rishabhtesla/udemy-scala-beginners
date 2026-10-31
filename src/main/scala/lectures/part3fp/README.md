@@ -1,6 +1,10 @@
 # Part 3 — Functional Programming in Scala
 ### All Concepts Explained from the Ground Up
 
+This part shows how Scala code can transform values instead of repeatedly changing state. You should know Part 1 methods and basic Part 2 classes. Read each section alongside its matching source file, and run examples using `sbt "runMain lectures.part3fp.FileName"`.
+
+For every operation, say what goes in, what comes out, and whether it changes the original collection. This input-to-output habit is central to understanding functional code and explaining it clearly in interviews.
+
 ---
 
 # 🧠 1. WhatsAFunction.scala — Functions as First-Class Citizens
@@ -606,3 +610,15 @@ TuplesAndMaps       → Tuples for grouping; Maps for key-value data
 | `Sequences` | List=linked, Array=mutable, Vector=fast random access |
 | `TuplesAndMaps` | Tuples=fixed heterogeneous groups; Maps=key→value with functional ops |
 
+## Practice and interview checkpoints
+
+- Given a list of numbers, produce the squares of the even numbers. First use `filter` and `map`, then express the same transformation as a `for` comprehension.
+- Use `Option` to safely read a missing map key and transform its value without calling `.get`.
+- Explain with a small example why `flatMap` is useful when each input can produce zero or many outputs.
+- Write a function that takes another function as an argument. Identify its input and output types.
+- For a data structure with frequent random access, compare the trade-offs of `List` and `Vector`.
+- Explain when `Try` is useful and how it differs from `Option`.
+
+Interview checkpoints: What makes a function higher-order? What is the difference between `map` and `flatMap`? How does `Option` avoid null checks? What does a for-comprehension translate into? Which operations return a new immutable collection, and which can perform side effects?
+
+Before moving to Part 4, be able to trace a short `map`/`flatMap` chain and explain where an absent value or failure goes.
